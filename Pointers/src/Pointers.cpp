@@ -14,7 +14,7 @@ int main()
 {
 
 	string* pWord = 0;
-	unique_ptr<string> pWord2 = 0;
+	unique_ptr<string> pWordUnique = 0;
 
 	pWord = new string("Helo");
 
