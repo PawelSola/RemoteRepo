@@ -8,7 +8,15 @@
 #ifndef LIFESIMULATOR_H_
 #define LIFESIMULATOR_H_
 
-class LifeSimulator {
+class LifeSimulator
+{
+public:
+	LifeSimulator();
+
+	long getSimulationStep() const;
+
+private:
+	long simulationStep;
 };
 
 #endif /* LIFESIMULATOR_H_ */

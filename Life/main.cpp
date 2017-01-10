@@ -14,5 +14,7 @@ int main()
 {
 	cout << "Initializing Life Simulator..." << endl;
 	LifeSimulator sim;
+
+	cout << "Simulation step: " << sim.getSimulationStep() << endl;
 }
 

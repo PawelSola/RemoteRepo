@@ -7,3 +7,14 @@
 
 #include "LifeSimulator.h"
 
+LifeSimulator::LifeSimulator()
+{
+	simulationStep = 0;
+}
+
+long LifeSimulator::getSimulationStep() const
+{
+	return simulationStep;
+}
+
+
