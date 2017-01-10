@@ -15,6 +15,7 @@ public:
 
 	long getSimulationStep() const;
 
+	void run();
 private:
 	long simulationStep;
 };
