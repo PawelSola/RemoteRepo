@@ -17,4 +17,6 @@ long LifeSimulator::getSimulationStep() const
 	return simulationStep;
 }
 
-
+void LifeSimulator::run()
+{
+}
