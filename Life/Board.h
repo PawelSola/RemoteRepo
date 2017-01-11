@@ -15,8 +15,8 @@ public:
 	Board() = default;
 	virtual ~Board() = default;
 
-	virtual T get(int x, int y) = 0;
-	virtual void set(int x, int y, T val) = 0;
+	virtual const T& get(int x, int y) = 0;
+	virtual void set(int x, int y, const T& val) = 0;
 
 	virtual void print() = 0;
 

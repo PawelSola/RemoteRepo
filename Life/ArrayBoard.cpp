@@ -31,19 +31,13 @@ ArrayBoard<T>::~ArrayBoard()
 }
 
 template <class T>
-T ArrayBoard<T>::get(int x, int y)
+const T& ArrayBoard<T>::get(int x, int y)
 {
-	T retVal = 0;
-	if ( (x >= 0) && (x < Board<T>::size) &&
-		 (y >= 0) && (y < Board<T>::size))
-	{
-		retVal = tab[x][y];
-	}
-	return retVal;
+	return tab[x][y];
 }
 
 template <class T>
-void ArrayBoard<T>::set(int x, int y, T val)
+void ArrayBoard<T>::set(int x, int y, const T& val)
 {
 	if ( (x >= 0) && (x < Board<T>::size) &&
 		 (y >= 0) && (y < Board<T>::size))

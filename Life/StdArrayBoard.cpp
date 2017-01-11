@@ -21,13 +21,13 @@ StdArrayBoard<T>::~StdArrayBoard()
 }
 
 template <class T>
-T StdArrayBoard<T>::get(int x, int y)
+const T& StdArrayBoard<T>::get(int x, int y)
 {
 	return tab[x][y];
 }
 
 template <class T>
-void StdArrayBoard<T>::set(int x, int y, T val)
+void StdArrayBoard<T>::set(int x, int y, const T& val)
 {
 	tab[x][y] = val;
 }

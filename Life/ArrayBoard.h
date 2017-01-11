@@ -17,8 +17,8 @@ public:
 	ArrayBoard();
 	virtual ~ArrayBoard();
 
-	virtual T get(int x, int y);
-	virtual void set(int x, int y, T val);
+	virtual const T& get(int x, int y);
+	virtual void set(int x, int y, const T& val);
 
 	virtual void print();
 private:

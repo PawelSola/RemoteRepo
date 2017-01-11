@@ -60,11 +60,16 @@ void LifeSimulator::initialize()
 		}
 	}
 
-	board->set(5, 5, 1);
-	board->set(5, 6, 1);
+	board->set(6, 5, 1);
 	board->set(6, 6, 1);
-	board->set(7, 5, 1);
-	board->set(7, 6, 1);
+	board->set(6, 7, 1);
+
+	board->set(3, 1, 1);
+	board->set(4, 2, 1);
+	board->set(2, 3, 1);
+	board->set(3, 3, 1);
+	board->set(4, 3, 1);
+
 }
 
 void LifeSimulator::generateNextPopulation()
@@ -78,7 +83,11 @@ void LifeSimulator::generateNextPopulation()
 			count = board->get(i - 1, j) +
 					board->get(i, j - 1) +
 					board->get(i + 1, j) +
-					board->get(i, j + 1);
+					board->get(i, j + 1) +
+					board->get(i - 1, j - 1) +
+					board->get(i + 1, j - 1) +
+					board->get(i + 1, j + 1) +
+					board->get(i - 1, j + 1);
 			if(count < 2 || count > 3)
 				targetBoard->set(i, j, 0);
 			if(count == 2)
