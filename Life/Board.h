@@ -20,8 +20,10 @@ public:
 
 	virtual void print() = 0;
 
-	virtual int getSize() = 0;
+	static int getSize() { return size; }
 
+protected:
+	static const int size = 10;
 };
 
 template class Board<int>;

@@ -10,12 +10,13 @@
 
 #include "LifeSimulator.h"
 #include "ArrayBoard.h"
+#include "StdArrayBoard.h"
 
 LifeSimulator::LifeSimulator()
 {
 	simulationStep = 0;
 	board = new ArrayBoard<int>;
-	targetBoard = new ArrayBoard<int>;
+	targetBoard = new StdArrayBoard<int>;
 }
 
 LifeSimulator::~LifeSimulator()

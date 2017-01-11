@@ -13,18 +13,17 @@
 template <class T>
 ArrayBoard<T>::ArrayBoard()
 {
-	size = 10;
-	tab = new T*[size];
-	for (auto i = 0; i < size; ++i)
+	tab = new T*[Board<T>::size];
+	for (auto i = 0; i < Board<T>::size; ++i)
 	{
-		tab[i] = new T[size];
+		tab[i] = new T[Board<T>::size];
 	}
 }
 
 template <class T>
 ArrayBoard<T>::~ArrayBoard()
 {
-	for (auto i = 0; i < size; ++i)
+	for (auto i = 0; i < Board<T>::size; ++i)
 	{
 		delete tab[i];
 	}
@@ -35,8 +34,8 @@ template <class T>
 T ArrayBoard<T>::get(int x, int y)
 {
 	T retVal = 0;
-	if ( (x >= 0) && (x < size) &&
-		 (y >= 0) && (y < size))
+	if ( (x >= 0) && (x < Board<T>::size) &&
+		 (y >= 0) && (y < Board<T>::size))
 	{
 		retVal = tab[x][y];
 	}
@@ -46,8 +45,8 @@ T ArrayBoard<T>::get(int x, int y)
 template <class T>
 void ArrayBoard<T>::set(int x, int y, T val)
 {
-	if ( (x >= 0) && (x < size) &&
-		 (y >= 0) && (y < size))
+	if ( (x >= 0) && (x < Board<T>::size) &&
+		 (y >= 0) && (y < Board<T>::size))
 	{
 		tab[x][y] = val;
 	}
@@ -56,32 +55,27 @@ void ArrayBoard<T>::set(int x, int y, T val)
 template <class T>
 void ArrayBoard<T>::print()
 {
+	std::cout << "ArrayBoard used" << std::endl;
 	std::cout << " ";
-	for (auto j = 0; j < size; ++j)
+	for (auto j = 0; j < Board<T>::size; ++j)
 	{
 		std::cout << "-";
 	}
 	std::cout << std::endl;
-	for (auto i = 0; i < size; ++i)
+	for (auto i = 0; i < Board<T>::size; ++i)
 	{
 		std::cout << "|";
-		for (auto j = 0; j < size; ++j)
+		for (auto j = 0; j < Board<T>::size; ++j)
 		{
 			tab[i][j] ? std::cout <<  "*" : std::cout << " ";
 		}
 		std::cout << "|" << std::endl;
 	}
 	std::cout << " ";
-	for (auto j = 0; j < size; ++j)
+	for (auto j = 0; j < Board<T>::size; ++j)
 	{
 		std::cout << "-";
 	}
-}
-
-template <class T>
-int ArrayBoard<T>::getSize()
-{
-	return size;
 }
 
 template class ArrayBoard<int>;

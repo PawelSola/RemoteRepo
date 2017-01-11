@@ -21,11 +21,8 @@ public:
 	virtual void set(int x, int y, T val);
 
 	virtual void print();
-
-	virtual int getSize();
 private:
 	T** tab;
-	int size;
 };
 
 #endif /* ARRAYBOARD_H_ */
