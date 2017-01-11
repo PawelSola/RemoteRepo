@@ -9,16 +9,18 @@
 
 #include "Board.h"
 
-Board::Board()
+template <class T>
+Board<T>::Board()
 {
-	tab = new int*[size];
+	tab = new T*[size];
 	for (auto i = 0; i < size; ++i)
 	{
-		tab[i] = new int[size];
+		tab[i] = new T[size];
 	}
 }
 
-Board::~Board()
+template <class T>
+Board<T>::~Board()
 {
 	for (auto i = 0; i < size; ++i)
 	{
@@ -27,9 +29,10 @@ Board::~Board()
 	delete tab;
 }
 
-int Board::get(int x, int y)
+template <class T>
+T Board<T>::get(int x, int y)
 {
-	int retVal = 0;
+	T retVal = 0;
 	if ( (x >= 0) && (x < size) &&
 		 (y >= 0) && (y < size))
 	{
@@ -38,7 +41,8 @@ int Board::get(int x, int y)
 	return retVal;
 }
 
-void Board::set(int x, int y, int val)
+template <class T>
+void Board<T>::set(int x, int y, T val)
 {
 	if ( (x >= 0) && (x < size) &&
 		 (y >= 0) && (y < size))
@@ -47,7 +51,8 @@ void Board::set(int x, int y, int val)
 	}
 }
 
-void Board::print()
+template <class T>
+void Board<T>::print()
 {
 	std::cout << " ";
 	for (auto j = 0; j < size; ++j)
@@ -71,7 +76,10 @@ void Board::print()
 	}
 }
 
-int Board::getSize()
+template <class T>
+int Board<T>::getSize()
 {
 	return size;
 }
+
+template class Board<int>;

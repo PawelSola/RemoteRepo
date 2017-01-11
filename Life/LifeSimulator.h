@@ -22,8 +22,8 @@ public:
 private:
 	static const long maxSteps = 100;
 	long simulationStep;
-	Board board;
-	Board targetBoard;
+	Board<int> board;
+	Board<int> targetBoard;
 
 	void initialize();
 	void generateNextPopulation();

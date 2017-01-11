@@ -40,7 +40,7 @@ void LifeSimulator::nextStep()
 
 void LifeSimulator::initialize()
 {
-	auto size = Board::getSize();
+	auto size = Board<int>::getSize();
 	for (auto i = 0; i < size; ++i)
 	{
 		for (auto j = 0; j < size; ++j)
@@ -59,7 +59,7 @@ void LifeSimulator::initialize()
 
 void LifeSimulator::generateNextPopulation()
 {
-	auto size = Board::getSize();
+	auto size = Board<int>::getSize();
 	for (auto i = 1; i < size - 1; ++i)
 	{
 		for (auto j = 1; j < size - 1; ++j)
