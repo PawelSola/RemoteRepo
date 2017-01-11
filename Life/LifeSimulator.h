@@ -14,6 +14,7 @@ class LifeSimulator
 {
 public:
 	LifeSimulator();
+	~LifeSimulator();
 
 	long getSimulationStep() const;
 
@@ -22,8 +23,8 @@ public:
 private:
 	static const long maxSteps = 100;
 	long simulationStep;
-	Board<int> board;
-	Board<int> targetBoard;
+	Board<int>* board;
+	Board<int>* targetBoard;
 
 	void initialize();
 	void generateNextPopulation();

@@ -12,18 +12,19 @@ template <class T>
 class Board
 {
 public:
-	Board();
-	virtual ~Board();
+	Board() = default;
+	virtual ~Board() = default;
 
-	T get(int x, int y);
-	void set(int x, int y, T val);
+	virtual T get(int x, int y) = 0;
+	virtual void set(int x, int y, T val) = 0;
 
-	void print();
+	virtual void print() = 0;
 
-	static int getSize();
-private:
-	static const int size = 10;
-	T** tab;
+	virtual int getSize() = 0;
+
 };
+
+template class Board<int>;
+
 
 #endif /* BOARD_H_ */

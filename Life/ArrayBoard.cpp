@@ -1,17 +1,19 @@
 /*
- * Board.cpp
+ * ArrayBoard.cpp
  *
  *  Created on: 11.01.2017
  *      Author: meep_solp
  */
 
+#include "ArrayBoard.h"
+
 #include <iostream>
 
-#include "Board.h"
 
 template <class T>
-Board<T>::Board()
+ArrayBoard<T>::ArrayBoard()
 {
+	size = 10;
 	tab = new T*[size];
 	for (auto i = 0; i < size; ++i)
 	{
@@ -20,7 +22,7 @@ Board<T>::Board()
 }
 
 template <class T>
-Board<T>::~Board()
+ArrayBoard<T>::~ArrayBoard()
 {
 	for (auto i = 0; i < size; ++i)
 	{
@@ -30,7 +32,7 @@ Board<T>::~Board()
 }
 
 template <class T>
-T Board<T>::get(int x, int y)
+T ArrayBoard<T>::get(int x, int y)
 {
 	T retVal = 0;
 	if ( (x >= 0) && (x < size) &&
@@ -42,7 +44,7 @@ T Board<T>::get(int x, int y)
 }
 
 template <class T>
-void Board<T>::set(int x, int y, T val)
+void ArrayBoard<T>::set(int x, int y, T val)
 {
 	if ( (x >= 0) && (x < size) &&
 		 (y >= 0) && (y < size))
@@ -52,7 +54,7 @@ void Board<T>::set(int x, int y, T val)
 }
 
 template <class T>
-void Board<T>::print()
+void ArrayBoard<T>::print()
 {
 	std::cout << " ";
 	for (auto j = 0; j < size; ++j)
@@ -77,9 +79,9 @@ void Board<T>::print()
 }
 
 template <class T>
-int Board<T>::getSize()
+int ArrayBoard<T>::getSize()
 {
 	return size;
 }
 
-template class Board<int>;
+template class ArrayBoard<int>;
