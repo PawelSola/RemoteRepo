@@ -5,6 +5,7 @@
  *      Author: meep_solp
  */
 #include <iostream>
+#include <conio.h>
 
 #include "LifeSimulator.h"
 
@@ -12,10 +13,15 @@ using namespace std;
 
 int main()
 {
-	cout << "Initializing Life Simulator..." << endl;
+	cout << "Starting Life Simulator..." << endl;
 	LifeSimulator sim;
 	sim.run();
+	unsigned char key;
+    do
+    {
+        key = getch();
+        sim.nextStep();
+    } while( key != 27 );
 
-	cout << "Simulation step: " << sim.getSimulationStep() << endl;
 }
 

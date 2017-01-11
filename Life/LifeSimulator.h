@@ -8,6 +8,8 @@
 #ifndef LIFESIMULATOR_H_
 #define LIFESIMULATOR_H_
 
+#include "Board.h"
+
 class LifeSimulator
 {
 public:
@@ -16,8 +18,15 @@ public:
 	long getSimulationStep() const;
 
 	void run();
+	void nextStep();
 private:
+	static const long maxSteps = 100;
 	long simulationStep;
+	Board board;
+	Board targetBoard;
+
+	void initialize();
+	void generateNextPopulation();
 };
 
 #endif /* LIFESIMULATOR_H_ */
