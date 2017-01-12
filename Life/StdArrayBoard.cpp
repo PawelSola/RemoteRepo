@@ -11,16 +11,6 @@
 
 
 template <class T>
-StdArrayBoard<T>::StdArrayBoard()
-{
-}
-
-template <class T>
-StdArrayBoard<T>::~StdArrayBoard()
-{
-}
-
-template <class T>
 const T& StdArrayBoard<T>::get(int x, int y)
 {
 	return tab[x][y];

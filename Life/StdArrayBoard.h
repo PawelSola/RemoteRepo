@@ -16,8 +16,8 @@ template <class T>
 class StdArrayBoard : public Board<T>
 {
 public:
-	StdArrayBoard();
-	virtual ~StdArrayBoard();
+	StdArrayBoard() = default;
+	virtual ~StdArrayBoard() = default;
 
 	virtual const T& get(int x, int y);
 	virtual void set(int x, int y, const T& val);

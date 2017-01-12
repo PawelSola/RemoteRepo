@@ -12,7 +12,6 @@ template <class T>
 class Board
 {
 public:
-	Board() = default;
 	virtual ~Board() = default;
 
 	virtual const T& get(int x, int y) = 0;

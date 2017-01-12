@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <memory>
 
 #include "LifeSimulator.h"
 #include "ArrayBoard.h"
@@ -15,14 +16,8 @@
 LifeSimulator::LifeSimulator()
 {
 	simulationStep = 0;
-	board = new ArrayBoard<int>;
-	targetBoard = new StdArrayBoard<int>;
-}
-
-LifeSimulator::~LifeSimulator()
-{
-	delete board;
-	delete targetBoard;
+	board = std::shared_ptr<ArrayBoard<int> >(new ArrayBoard<int>);
+	targetBoard = std::shared_ptr<StdArrayBoard<int> >(new StdArrayBoard<int>);
 }
 
 long LifeSimulator::getSimulationStep() const

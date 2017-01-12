@@ -14,14 +14,14 @@ using namespace std;
 int main()
 {
 	cout << "Starting Life Simulator..." << endl;
-	LifeSimulator sim;
-	sim.run();
+	LifeSimulator* sim = new LifeSimulator;
+	sim->run();
 	unsigned char key;
     do
     {
         key = getch();
-        sim.nextStep();
+        sim->nextStep();
     } while( key != 27 );
-
+    delete sim;
 }
 

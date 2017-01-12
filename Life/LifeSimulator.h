@@ -8,13 +8,15 @@
 #ifndef LIFESIMULATOR_H_
 #define LIFESIMULATOR_H_
 
+#include <memory>
+
 #include "Board.h"
 
 class LifeSimulator
 {
 public:
 	LifeSimulator();
-	~LifeSimulator();
+	~LifeSimulator() = default;
 
 	long getSimulationStep() const;
 
@@ -23,8 +25,8 @@ public:
 private:
 	static const long maxSteps = 100;
 	long simulationStep;
-	Board<int>* board;
-	Board<int>* targetBoard;
+	std::shared_ptr<Board<int> > board;
+	std::shared_ptr<Board<int> > targetBoard;
 
 	void initialize();
 	void generateNextPopulation();
