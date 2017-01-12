@@ -21,7 +21,6 @@ public:
 
 	virtual const T& get(int x, int y);
 	virtual void set(int x, int y, const T& val);
-
 	virtual void print();
 private:
 	std::array<std::array<T, Board<T>::size>, Board<T>::size> tab;

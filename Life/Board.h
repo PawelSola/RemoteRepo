@@ -16,11 +16,9 @@ public:
 
 	virtual const T& get(int x, int y) = 0;
 	virtual void set(int x, int y, const T& val) = 0;
-
 	virtual void print() = 0;
 
-	static int getSize() { return size; }
-
+	static inline int getSize() { return size; }
 protected:
 	static const int size = 10;
 };

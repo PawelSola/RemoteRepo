@@ -19,7 +19,6 @@ public:
 
 	virtual const T& get(int x, int y);
 	virtual void set(int x, int y, const T& val);
-
 	virtual void print();
 private:
 	T** tab;

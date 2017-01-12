@@ -27,7 +27,7 @@ ArrayBoard<T>::~ArrayBoard()
 	{
 		delete tab[i];
 	}
-	delete tab;
+	delete[] tab;
 }
 
 template <class T>

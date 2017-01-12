@@ -83,11 +83,11 @@ void LifeSimulator::generateNextPopulation()
 					board->get(i + 1, j - 1) +
 					board->get(i + 1, j + 1) +
 					board->get(i - 1, j + 1);
-			if(count < 2 || count > 3)
+			if (count < 2 || count > 3)
 				targetBoard->set(i, j, 0);
-			if(count == 2)
+			if (count == 2)
 				targetBoard->set(i, j, board->get(i, j));
-			if(count == 3)
+			if (count == 3)
 				targetBoard->set(i, j, 1);
 		}
 	}
