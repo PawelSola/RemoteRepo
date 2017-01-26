@@ -16,6 +16,7 @@
 LifeSimulator::LifeSimulator()
 {
 	simulationStep = 0;
+	isRunningFlag = false;
 	board = std::shared_ptr<ArrayBoard<int> >(new ArrayBoard<int>);
 	targetBoard = std::shared_ptr<StdArrayBoard<int> >(new StdArrayBoard<int>);
 }
@@ -28,18 +29,20 @@ long LifeSimulator::getSimulationStep() const
 void LifeSimulator::run()
 {
 	simulationStep = 0;
+	isRunningFlag = true;
 	initialize();
 }
 
 void LifeSimulator::nextStep()
 {
-	simulationStep++;
+	if (maxSteps <= ++simulationStep)
+		isRunningFlag = false;
 	std::cout << std::string( 20, '\n' );
 	std::cout << std::endl << "Simulation step: " << simulationStep << std::endl;
-	std::cout << std::endl << "Main board:" << std::endl;
+	std::cout << "Main board:" << std::endl;
 	board->print();
 	generateNextPopulation();
-	std::cout << std::endl << "Target board:" << std::endl;
+	std::cout << "Target board:" << std::endl;
 	targetBoard->print();
 }
 
@@ -65,6 +68,11 @@ void LifeSimulator::initialize()
 	board->set(3, 3, 1);
 	board->set(4, 3, 1);
 
+}
+
+bool LifeSimulator::isRunning()
+{
+	return isRunningFlag;
 }
 
 void LifeSimulator::generateNextPopulation()

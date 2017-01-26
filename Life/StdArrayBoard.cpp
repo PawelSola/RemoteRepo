@@ -46,6 +46,7 @@ void StdArrayBoard<T>::print()
 	{
 		std::cout << "-";
 	}
+	std::cout << std::endl;
 }
 
 template class StdArrayBoard<int>;

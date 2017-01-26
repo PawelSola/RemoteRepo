@@ -5,7 +5,8 @@
  *      Author: meep_solp
  */
 #include <iostream>
-#include <conio.h>
+#include <chrono>
+#include <thread>
 
 #include "LifeSimulator.h"
 
@@ -14,13 +15,12 @@ int main()
 	std::cout << "Starting Life Simulator..." << std::endl;
 	LifeSimulator* sim = new LifeSimulator;
 	sim->run();
-	unsigned char key;
 	do
     {
-    	key = getch();
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
     	sim->nextStep();
     }
-    while( key != 27 );
+    while( sim->isRunning());
     delete sim;
 }
 

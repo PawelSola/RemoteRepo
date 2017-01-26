@@ -22,8 +22,10 @@ public:
 
 	void run();
 	void nextStep();
+	bool isRunning();
 private:
 	static const long maxSteps = 100;
+	bool isRunningFlag;
 	long simulationStep;
 	std::shared_ptr<Board<int> > board;
 	std::shared_ptr<Board<int> > targetBoard;

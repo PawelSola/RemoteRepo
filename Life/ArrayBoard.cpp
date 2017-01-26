@@ -70,6 +70,7 @@ void ArrayBoard<T>::print()
 	{
 		std::cout << "-";
 	}
+	std::cout << std::endl;
 }
 
 template class ArrayBoard<int>;
