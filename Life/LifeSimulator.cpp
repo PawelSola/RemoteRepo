@@ -8,6 +8,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <memory>
+#include <chrono>
+#include <thread>
+
 
 #include "LifeSimulator.h"
 #include "ArrayBoard.h"
@@ -16,7 +19,6 @@
 LifeSimulator::LifeSimulator()
 {
 	simulationStep = 0;
-	isRunningFlag = false;
 	board = std::shared_ptr<ArrayBoard<int> >(new ArrayBoard<int>);
 	targetBoard = std::shared_ptr<StdArrayBoard<int> >(new StdArrayBoard<int>);
 }
@@ -29,14 +31,18 @@ long LifeSimulator::getSimulationStep() const
 void LifeSimulator::run()
 {
 	simulationStep = 0;
-	isRunningFlag = true;
 	initialize();
+	do
+    {
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    	nextStep();
+    }
+    while( maxSteps > simulationStep);
 }
 
 void LifeSimulator::nextStep()
 {
-	if (maxSteps <= ++simulationStep)
-		isRunningFlag = false;
+	++simulationStep;
 	std::cout << std::string( 20, '\n' );
 	std::cout << std::endl << "Simulation step: " << simulationStep << std::endl;
 	std::cout << "Main board:" << std::endl;
@@ -68,11 +74,6 @@ void LifeSimulator::initialize()
 	board->set(3, 3, 1);
 	board->set(4, 3, 1);
 
-}
-
-bool LifeSimulator::isRunning()
-{
-	return isRunningFlag;
 }
 
 void LifeSimulator::generateNextPopulation()
